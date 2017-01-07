@@ -1,9 +1,0 @@
-D:\Vinay\TFS\KT\Assignments\AngularJS\Project_Visual_Studio\AngularJS_Assignment\AngularJS\bin\AngularJS.dll
-D:\Vinay\TFS\KT\Assignments\AngularJS\Project_Visual_Studio\AngularJS_Assignment\AngularJS\bin\AngularJS.pdb
-D:\Vinay\TFS\KT\Assignments\AngularJS\Project_Visual_Studio\AngularJS_Assignment\AngularJS\obj\Debug\AngularJS.dll
-D:\Vinay\TFS\KT\Assignments\AngularJS\Project_Visual_Studio\AngularJS_Assignment\AngularJS\obj\Debug\AngularJS.pdb
-D:\Projects\TFS\KT\AngularJS\Vinay Singh - AngularJS_Assignment\AngularJS_Assignment\AngularJS\bin\AngularJS.dll.config
-D:\Projects\TFS\KT\AngularJS\Vinay Singh - AngularJS_Assignment\AngularJS_Assignment\AngularJS\bin\AngularJS.dll
-D:\Projects\TFS\KT\AngularJS\Vinay Singh - AngularJS_Assignment\AngularJS_Assignment\AngularJS\bin\AngularJS.pdb
-D:\Projects\TFS\KT\AngularJS\Vinay Singh - AngularJS_Assignment\AngularJS_Assignment\AngularJS\obj\Debug\AngularJS.dll
-D:\Projects\TFS\KT\AngularJS\Vinay Singh - AngularJS_Assignment\AngularJS_Assignment\AngularJS\obj\Debug\AngularJS.pdb
