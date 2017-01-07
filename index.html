@@ -1,489 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title>Employee Details</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.3/js/bootstrap-dialog.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.3/css/bootstrap-dialog.css" type="text/css" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="AngularFiles/Modules/ag-module-details.js"></script>
+    <script src="AngularFiles/Contollers/ag-controller-EmployeeDetails.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <style>
+        .w3-tangerine {
+            font-family: 'Tangerine', serif;
+        }
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+        .w3-Margin-Details {
+            margin-top: 4px;
+            margin-bottom: 4px;
+            margin-right: 4px;
+            margin-left: 4px;
+        }
+    </style>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            if (typeof (Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage.
+                var dialogInstance = BootstrapDialog.show({
+                    //message: 'Web Storage support avaiable...',
+                    message: 'Welcome !!! Vinay Singh. ',
+                    type: BootstrapDialog.TYPE_INFO
+                });
+            } else {
+                var dialogInstance = BootstrapDialog.show({
+                    message: 'Sorry! No Web Storage support...',
+                    type: BootstrapDialog.TYPE_DANGER
+                });
+            }
 
-    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+            $('[data-toggle="tooltip"]').tooltip();     // To bind the tooltip using bootsrap tooltip
 
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+            //$('#tblEmployeeDetails').DataTable();       // To Bind the Sorting to table
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+        });
+    </script>
 </head>
-
 <body>
+    <div class="container">
 
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+        <header id="employeeDetailsHeader">
+            <div>
+                <h1 class="text-center row">
+                    <span class="col-sm-2">
+                        <img src="Images/Vinay_Solution.png" />
+                    </span>
+                    <span class="col-sm-8 w3-text-left w3-text-deep-purple w3-tangerine">Employee Details</span>
+                </h1>
             </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+        </header>
 
-        <div id="page-wrapper">
+        <div ng-app="employeeDetailsModule" ng-controller="EmployeeSaveController">
+            <div id="formDiv" class="w3-light-grey">
 
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
+                <form name="userForm" novalidate>
+                    <div id="inputFormDiv" class="w3-card-8">
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <i class="w3-xlarge fa fa-id-card"></i>
+                                <span>Employee Number: </span>&nbsp                              
+                            </div>
+                            <div class="col-sm-3 w3-Margin-Details">
+                                <input type="text" class="w3-input w3-card-4 w3-border w3-round-xxlarge w3-hover-sand w3-hover-text-brown"
+                                    required name="empNumber"
+                                    id="txtEmployeeNumber" placeholder="Please enter employee id" ng-disabled="EditRecord[1]" ng-model="currentEmployee.employeeId" />
+                                <span>
+                                    <i ng-show="userForm.empNumber.$valid" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                    <p ng-show="userForm.empNumber.$invalid && !userForm.empNumber.$pristine" class="w3-text-red help-block">You name is required.</p>
+                                </span>
+                            </div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <i class="w3-xlarge fa fa-user"></i>&nbsp;&nbsp;
+                                <span>Employee Name:</span>
+                            </div>
+                            <div class="col-sm-3 w3-Margin-Details">
+                                <input type="text" class="w3-input w3-card-4 w3-border w3-round-xxlarge w3-hover-sand w3-hover-text-brown"
+                                    required ng-minlength="5" ng-maxlength="25" name="name"
+                                    id="txtEmployeeName" placeholder="Please enter employee name" ng-model="currentEmployee.fullName" />
+                                <i ng-show="userForm.name.$valid" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="w3-text-red help-block">Employee name is required.</p>
+                                <p ng-show="userForm.name.$error.minlength" class="w3-text-red help-block">Employee name is too short. Minimum of 5 charcters required.</p>
+                                <p ng-show="userForm.name.$error.maxlength" class="w3-text-red help-block">Employee name is too long. Maximum of 25 characters are allowed.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <i class="w3-xlarge fa fa-envelope-o"></i>&nbsp;&nbsp;
+                            <span>Email id:</span>
+                            </div>
+                            <div class="col-sm-3 w3-Margin-Details">
+                                <input type="email" class="w3-input w3-card-4 w3-border w3-round-xxlarge w3-hover-sand w3-hover-text-brown"
+                                    name="email" required
+                                    id="txtEmailId" placeholder="Please enter email id" ng-model="currentEmployee.emailId" />
+                                <i ng-show="userForm.email.$valid" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="w3-text-red  help-block">Enter a valid email.</p>
+                            </div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <i class="w3-xlarge fa fa-phone"></i>&nbsp;&nbsp;
+                            <span>Mobile Number :</span>
+                            </div>
+                            <div class="col-sm-3 w3-Margin-Details">
+                                <input type="number" class="w3-left w3-card-4 w3-input w3-border w3-round-xxlarge w3-hover-sand w3-hover-text-brown"
+                                    required ng-minlength="8" ng-maxlength="12" name="mobileNumber"
+                                    id="txtMobileNumber" placeholder="Please enter mobile number" ng-model="currentEmployee.mobileNumber" />
+                                <i ng-show="userForm.mobileNumber.$valid" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                <p ng-show="userForm.mobileNumber.$invalid && !userForm.mobileNumber.$pristine" class="w3-text-red  help-block">Please enter valid mobile number.</p>
+                                <p ng-show="userForm.mobileNumber.$error.minlength" class="w3-text-red  help-block">Mobile number is too short. Minimum of 8 characters are required.</p>
+                                <p ng-show="userForm.mobileNumber.$error.maxlength" class="w3-text-red  help-block">Mobile number is too long. Maximum of 12 characters are allowed.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2 w3-Margin-Details"> 
+                                <i class="w3-xlarge fa fa-male"></i>&nbsp;&nbsp;
+                            <span>Employee Gender:</span>
+                            </div>
+                            <div class="col-sm-3 w3-Margin-Details">
+                                <span ng-repeat="genders in listofGenders">
+                                    <input class="w3-radio" type="radio" name="gender" value="{{genders.value}}"
+                                        ng-model="currentEmployee.gender" ng-checked="{{genders.selected}}" />
+                                    <label class="w3-validate">{{genders.text}}</label>
+                                </span>
+                            </div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <!--<i class="w3-xlarge fa fa-heart"></i>-->
+                                <img src="Images/Wedding.jpg" />
+                                <span>Maritial Status:</span>
+                            </div>
+                            <div class="col-sm-2 w3-Margin-Details w3-bordered">
+                                <select class="form-control w3-card-4" ng-options="status.value as status.text for status in listofMaritialStatus"
+                                    name="statusId" required ng-model="currentEmployee.maritialStatus" id="ddlMaritialStatus">
+                                    <option disabled="disabled" value="">Select Status</option>
+                                </select>
+                                <i ng-show="(userForm.statusId.$valid && (currentEmployee.maritialStatus != 0))" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                <p ng-show="userForm.statusId.$invalid && !userForm.statusId.$pristine" class="w3-text-red help-block">Please select a status</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2 w3-Margin-Details">
+                                <i class="w3-xlarge fa fa-pencil"></i>&nbsp;&nbsp;
+                            <span>Employee Address:</span>
+                            </div>
+                            <div class="col-sm-8 w3-Margin-Details">
+                                <textarea class="form-control w3-card-4" rows="2" placeholder="Please enter address" id="txtaddress"
+                                    required name="empAddress" ng-model="currentEmployee.address"></textarea>
+                                <i ng-show="userForm.empAddress.$valid" class="fa fa-thumbs-o-up text-success" aria-hidden="true"></i>
+                                <p ng-show="userForm.empAddress.$invalid && !userForm.empAddress.$pristine" class="w3-text-red help-block">Address is required.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-offset-2 w3-Margin-Details col-sm-10 w3-center">
+                                <button type="submit"
+                                    ng-disabled="! (userForm.empNumber.$valid && userForm.name.$valid && userForm.email.$valid && 
+                                                    userForm.mobileNumber.$valid && (userForm.statusId.$valid && (currentEmployee.maritialStatus != 0)) && userForm.empAddress.$valid)"
+                                    ng-click="AddEmployee(true)"
+                                    class="btn w3-large w3-card-4 w3-round-xxlarge btn-success">
+                                    Submit</button>
+                                <button type="submit" ng-click="ClearMe()"
+                                    class="btn w3-large w3-card-4 w3-round-xxlarge btn-default">
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                </form>
+                <br />
+                <div id="resultGridDiv" class="row w3-card-4 w3-light-grey">
+                    <table id="tblEmployeeDetails" ng-hide="empCount < 1" class="w3-table-all col-sm-12">
+                        <thead>
+                            <tr class="w3-text-center">
+                                <th class="col-sm-1">Name</th>
+                                <th class="col-sm-2">Number</th>
+                                <th class="col-sm-2">Email Id</th>
+                                <th class="col-sm-2">Mobile Number</th>
+                                <th class="col-sm-1">Status</th>
+                                <th class="col-sm-1">Gender</th>
+                                <th class="col-sm-2">Address</th>
+                                <th class="col-sm-1">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="emp in employeeList">
+
+                                <td class="col-sm-1">{{emp.employeeId}}
+                                </td>
+
+                                <td class="col-sm-2">{{emp.fullName}}
+                                </td>
+
+                                <td class="col-sm-2">{{emp.emailId}}
+                                </td>
+
+                                <td class="col-sm-2">{{emp.mobileNumber}}
+                                </td>
+
+                                <td class="col-sm-1">{{emp.gender}}
+                                </td>
+
+                                <td class="col-sm-1">{{emp.maritialStatus}}
+                                </td>
+
+                                <td class="col-sm-2">{{emp.address}}
+                                </td>
+
+                                <td class="col-sm-1 btn-group">
+                                    <div class="w3-btn-group">
+
+                                        <!--data-toggle="modal" data-target="#modDisplay"-->
+                                        <button class="w3-btn w3-white w3-btn-floating btn-Display" style="width: 33.3%"
+                                            data-toggle="tooltip" title="Click on to view the record"
+                                            ng-click="DisplayEmployeeDetails(emp.employeeId)">
+                                            <i class="w3-xlarge fa fa-file-text-o"></i>
+
+                                        </button>
+                                        <button class="w3-btn w3-white w3-btn-floating" style="width: 33.3%"
+                                            data-toggle="tooltip" title="Click on to edit the record"
+                                            ng-click="EditEmployeeDetails(emp.employeeId)">
+                                            <i class="w3-xlarge fa fa-pencil"></i>
+                                        </button>
+                                        <button class="w3-btn w3-white w3-btn-floating" style="width: 33.3%"
+                                            data-toggle="tooltip" title="Click on to delete the record"
+                                            ng-click="DeleteEmployeeDetails(emp.employeeId)">
+                                            <i class="w3-xlarge fa fa-trash-o"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Comments!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-tasks fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
-                                        <div>New Tasks!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
 
             </div>
-            <!-- /.container-fluid -->
-
         </div>
-        <!-- /#page-wrapper -->
+
+        <footer id="employeeDetailsFooter">
+            <!--<span class="w3-text-deep-purple w3-tangerine">Footer Details</span>-->
+        </footer>
 
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
 </body>
-
 </html>
